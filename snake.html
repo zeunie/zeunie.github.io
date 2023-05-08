@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI generated Snake Game</title>
+    <title>ChatGPT Snake Game</title>
 </head>
 <body>
     <canvas id="canvas"></canvas>
@@ -25,6 +25,7 @@ ctx.fillRect(0,0,canvas.width,canvas.height);
 let snake = [{ x: 10, y: 10 }];
 let direction = "right";
 let food = generateFood();
+let score = 0; // Initialize score to 0
 
 // Game loop
 function gameLoop() {
@@ -33,6 +34,7 @@ function gameLoop() {
     moveSnake();
     drawSnake();
     drawFood();
+    drawScore(); // Draw the score on the canvas
     checkCollision();
     gameLoop();
   }, 100);
@@ -79,6 +81,7 @@ function ateFood() {
   const head = snake[0];
   if (head.x === food.x && head.y === food.y) {
     food = generateFood();
+    score += 10; // Increment score by 10
     return true;
   }
   return false;
@@ -98,53 +101,64 @@ function drawFood() {
   ctx.fillRect(food.x, food.y, cellSize, cellSize);
 }
 
+// Draw the score
+function drawScore() {
+  ctx.fillStyle = "White";
+  ctx.font = "15px Arial";
+  const scoreText = "Score: " + score;
+  const textWidth = ctx.measureText(scoreText).width;
+  ctx.fillText(scoreText, canvas.width - textWidth - 10, 25);
+}
+
+
 // Check for collision
 function checkCollision() {
-  const head = snake[0];
-  if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height) {
-    gameOver();
-  }
-  for (let i = 1; i < snake.length; i++) {
-    if (head.x === snake[i].x && head.y === snake[i].y) {
-      gameOver();
-    }
-  }
+const head = snake[0];
+if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height) {
+gameOver();
+}
+for (let i = 1; i < snake.length; i++) {
+if (head.x === snake[i].x && head.y === snake[i].y) {
+gameOver();
+}
+}
 }
 
 // Game over
 function gameOver() {
-  alert("Game over!");
-  location.reload();
+alert("Game over! Final score: " + score);
+location.reload();
 }
 
 // Event listeners
 document.addEventListener("keydown", (event) => {
-  switch (event.keyCode) {
-    case 37: // left arrow
-      if (direction !== "right") {
-        direction = "left";
-      }
-      break;
-    case 38: // up arrow
-      if (direction !== "down") {
-        direction = "up";
-      }
-      break;
-    case 39: // right arrow
-      if (direction !== "left") {
-        direction = "right";
-      }
-      break;
-    case 40: // down arrow
-      if (direction !== "up") {
-        direction = "down";
-      }
-      break;
-  }
+switch (event.keyCode) {
+case 37: // left arrow
+if (direction !== "right") {
+direction = "left";
+}
+break;
+case 38: // up arrow
+if (direction !== "down") {
+direction = "up";
+}
+break;
+case 39: // right arrow
+if (direction !== "left") {
+direction = "right";
+}
+break;
+case 40: // down arrow
+if (direction !== "up") {
+direction = "down";
+}
+break;
+}
 });
 
 // Start the game loop
 gameLoop();
-    </script>
+</script>
+
 </body>
 </html>
