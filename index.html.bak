@@ -54,9 +54,14 @@
 
       <h3>Publications</h3>
       <p>
-      <b>Jieun Han*</b>, Haneul Yoo*, Yoonsu Kim, Junho Myung, Minsun Kim, Hyunseung Lim, Juho Kim, Tak Yeon Lee, Hwajung Hong, Alice Oh, So-Yeon Ahn <b>"RECIPE: How to Integrate ChatGPT into EFL Writing Education"</b>
+      <b>Jieun Han*</b>, Haneul Yoo*, Junho Myung, Minsun Kim, Hyunseung Lim, Yoonsu Kim, Tak Yeon Lee, Hwajung Hong, Juho Kim, So-Yeon Ahn, Alice Oh <b>"FABRIC: Automated Scoring and Feedback Generation for Essays"</b>
+      (under review)     
+      <a href="https://dl.acm.org/doi/abs/10.1145/3573051.3596200"><b>link</b></a>
+      </p>      
+      <p>
+      <b>Jieun Han*</b>, Haneul Yoo*, Yoonsu Kim, Junho Myung, Minsun Kim, Hyunseung Lim, Juho Kim, Tak Yeon Lee, Hwajung Hong, So-Yeon Ahn, Alice Oh <b>"RECIPE: How to Integrate ChatGPT into EFL Writing Education"</b>
       Proceedings of the Tenth ACM Conference on Learning @ Scale (L@S 2023, WiP) 
-      <a href="https://arxiv.org/abs/2305.11583"><b>link</b></a>
+      <a href="https://dl.acm.org/doi/abs/10.1145/3573051.3596200"><b>link</b></a>
       </p>
       <p>
       Junhyeok Jung*, Kwanghyeon Lee*, Jiwoo Shin*, <b>Jieun Han*</b> <b>"Nodes‐in‐Cluster Significance Score(NCSS): Keyword Extraction with Redefined
