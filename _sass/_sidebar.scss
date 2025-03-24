@@ -167,9 +167,9 @@
   list-style-type: none;
   border: 1px solid $border-color;
   border-radius: $border-radius;
-  background-color: mix(white, #000, 20%);
+  background-color: white;
   z-index: -1;
-  box-shadow: 0 0 10px rgba(#000, 0.25);
+  box-shadow: 0 0 10px rgba(black, 0.25);
   cursor: default;
 
   @include breakpoint($large) {
