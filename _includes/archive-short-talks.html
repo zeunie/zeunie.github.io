@@ -1,0 +1,19 @@
+{% include base_path %}
+<div class="publication">
+  <p class="publication-text">
+    {{post.presenters | replace: "Dongkwan Kim", "<strong>Dongkwan Kim</strong>"}}.
+    "{{post.title}}",
+    {% if post.venueurl %}
+      <a href="{{post.venueurl}}"><em>{{post.venue}}</em></a>, 
+    {% else %}
+      <em>{{post.venue}}</em>, 
+    {% endif %}
+    {{post.date | date: "%Y"}}
+  </p>
+  {% if post.slideurl or post.videourl %}
+  <p class="link-buttons">
+    {% if post.slideurl %}<a href=" {{ post.slideurl }} " target="_blank">Slide</a>{% endif %}
+    {% if post.videourl %}<a href=" {{ post.videourl }} " target="_blank">Video</a>{% endif %}
+  </p>
+  {% endif %}
+</div>

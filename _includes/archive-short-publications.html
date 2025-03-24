@@ -1,0 +1,26 @@
+{% include base_path %}
+<div class="publication">
+  <p class="publication-text">
+    {% if prefix %}
+      [{{prefix}}{{prefix_index}}]
+    {% endif %}
+    {{post.authors | replace: "Dongkwan Kim", "<strong>Dongkwan Kim</strong>"}}.
+    <a href="{{base_path}}{{post.permalink}}">"{{post.title}}"</a>,
+    {% if post.venueurl %}
+      <a href="{{post.venueurl}}" class="publication-venue"><em>{{post.venue}}</em></a>, 
+    {% else %}
+      <em>{{post.venue}}</em>, 
+    {% endif %}
+    {{post.date | date: "%Y"}}
+  </p>
+  {% if post.paperurl or post.arxivurl or post.codeurl or post.dataurl or post.posterurl or post.slideurl %}
+  <p class="link-buttons">
+    {% if post.paperurl %}<a href=" {{ post.paperurl }} " target="_blank">Paper</a>{% endif %}
+    {% if post.arxivurl %}<a href=" {{ post.arxivurl }} " target="_blank">arXiv</a>{% endif %}
+    {% if post.codeurl %}<a href=" {{ post.codeurl }} " target="_blank">Code</a>{% endif %}
+    {% if post.dataurl %}<a href=" {{ post.dataurl }} " target="_blank">Data</a>{% endif %}
+    {% if post.posterurl %}<a href=" {{ post.posterurl }} " target="_blank">Poster</a>{% endif %}
+    {% if post.slideurl %}<a href=" {{ post.slideurl }} " target="_blank">Slide</a>{% endif %}
+  </p>
+  {% endif %}
+</div>

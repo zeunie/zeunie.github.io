@@ -1,0 +1,127 @@
+---
+layout: default
+---
+
+{% include base_path %}
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+{% include page__hero.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+{% unless paginator %}
+{% include breadcrumbs.html %}
+{% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+  
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: "%B %d, %Y" }}">{% endif %}
+    {% if page.modified %}<meta itemprop="dateModified" content="{{ page.modified | date: "%B %d, %Y" }}">{% endif %}
+    
+    <div class="page__inner-wrap">
+      {% unless page.header.overlay_color or page.header.overlay_image %}
+      <header>
+        {% if page.title %}<h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
+        {% if page.read_time %}
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
+        {% endif %}
+        {% if page.modified %}
+        <p class="page__date"><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }} <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time></p>
+        {% endif %}
+        
+        {% if page.paperurl %}
+        <p class="link-buttons">
+          <a href=" {{ page.paperurl }} " target="_blank">Paper</a>
+          {% if page.arxivurl %}<a href=" {{ page.arxivurl }} " target="_blank">arXiv</a>{% endif %}
+          {% if page.codeurl %}<a href=" {{ page.codeurl }} " target="_blank">Code</a>{% endif %}
+          {% if page.dataurl %}<a href=" {{ page.dataurl }} " target="_blank">Data</a>{% endif %}
+          {% if page.posterurl %}<a href=" {{ page.posterurl }} " target="_blank">Poster</a>{% endif %}
+          {% if page.slideurl %}<a href=" {{ page.slideurl }} " target="_blank">Slide</a>{% endif %}
+        </p>
+        {% endif %}
+        
+        {% if page.collection == 'teaching' %}
+        <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
+        {% elsif page.venue and page.date %}
+        <p>
+          {{page.authors | replace: "Dongkwan Kim", "<strong>Dongkwan Kim</strong>"}}.
+          <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }}
+        </p>
+        {% elsif page.date %}
+        <p class="page__date"><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }} <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+        {% endif %}
+        
+        
+        {% if page.citation and page.paperurl %}
+        <p>Recommended citation: {{ page.citation }} <a href="{{ page.paperurl }}"><u>{{ page.paperurl }}</u></a></p>
+        {% elsif page.citation %}
+        <p>Recommended citation: {{ page.citation }} </p>
+        {% endif %}
+        
+      </header>
+      {% endunless %}
+      
+      <section class="page__content" itemprop="text">
+        {{ content }}
+        {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+      </section>
+      
+      <footer class="page__meta">
+        {% if site.data.ui-text[site.locale].meta_label %}
+        <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
+        {% endif %}
+        {% include page__taxonomy.html %}
+      </footer>
+      
+      {% if page.share %}{% include social-share.html %}{% endif %}
+      
+      {% include post_pagination.html %}
+    </div>
+    
+    {% if site.comments.provider and page.comments %}
+    {% include adsense.html %}
+    {% include comments.html %}
+    {% endif %}
+  </article>
+  
+  {% comment %}<!-- only show related on a post page when not disabled -->{% endcomment %}
+  {% if page.id and page.related and site.related_posts.size > 0 %}
+  <div class="page__related">
+    {% if site.data.ui-text[site.locale].related_label %}
+    <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h4>
+    {% endif %}
+    <div class="grid__wrapper">
+      {% for post in site.related_posts limit:4 %}
+      {% include archive-single.html type="grid" %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+  function copy_to_clipboard(val) {
+    var dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = val;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+  }
+  document.addEventListener("DOMContentLoaded", function(event) {
+    const headers = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+    const selector = headers.map(h => ('.page__content > ' + h)).join(', ');
+    anchors.options.placement = 'left';
+    anchors.add(selector);
+    var links = document.querySelectorAll(selector);
+    for(var i = 0; i < links.length; i++) {
+      const url = window.location.href + "#" + links[i].id;
+      links[i].setAttribute('onclick', `copy_to_clipboard('${url}')`);
+    }
+  });
+</script>
