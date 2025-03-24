@@ -15,7 +15,7 @@ Please feel free to contact me via email <code>{firstname}_{lastname} (at) kaist
 
 ## Latest News ([See all](/news))
 
-- 👩‍💻 [Mar 2025] I will be joining <a href = 'https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/'> Microsoft Reserach</a> in Beijing as an intern in July 2025! 🇨🇳 
+- 👩‍💻 [Mar 2025] I will be joining <a href = 'https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/'> Microsoft Research</a> in Beijing as an intern starting in July 2025! 🇨🇳 
 - ✈️ [Nov 2024] Attending EMNLP to present <a href = 'https://aclanthology.org/2024.customnlp4u-1.21/'>LLM-as-a-tutor</a> as a workshop paper! 🇺🇸 
 - ✈️ [May 2024] Attended LREC-COLING to present <a href = 'https://aclanthology.org/2024.lrec-main.1193/'>RECIPE4U</a>! 🇮🇹 
 
