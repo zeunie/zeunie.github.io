@@ -15,9 +15,9 @@ Please feel free to contact me via email <code>{firstname}_{lastname} (at) kaist
 
 ## Latest News ([See all](/news))
 
-- 📝 [May 2025] Our paper <a href='https://arxiv.org/abs/2402.16733'>DREsS</a> is accepted to ACL 2025! 👗 
+- 📝 [Sep 2025] Our paper <a href='https://arxiv.org/abs/2505.20875'>Trans-Env</a> is accepted to NeurIPS 2025! 🇺🇲 
+- 📝 [May 2025] Our paper <a href='https://aclanthology.org/2025.acl-long.659/'>DREsS</a> is accepted to ACL 2025! 👗 
 - 👩‍💻 [Mar 2025] I will be joining <a href='https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/'> Microsoft Research Asia</a> as an intern starting in this July! 🇨🇳 
-- ✈️ [Nov 2024] Attended EMNLP to present <a href='https://aclanthology.org/2024.customnlp4u-1.21/'>LLM-as-a-tutor</a> as a workshop paper! 🇺🇸 
 
 ## Selected Publications ([See all](/publications))
 
