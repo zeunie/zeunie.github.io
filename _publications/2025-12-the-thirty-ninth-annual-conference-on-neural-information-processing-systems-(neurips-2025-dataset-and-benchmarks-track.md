@@ -1,7 +1,7 @@
 ---
 selected: ''
 title: 'Trans-EnV: A Framework for Evaluating the Linguistic Robustness of LLMs Against English Varieties'
-authors: 'Jiyoung Lee, Seungho Kim, Jieun Han, Jun-Min Lee, Kitaek Kim, Alice Oh, Edward Choi'
+authors: 'Jiyoung Lee*, Seungho Kim*, <b>Jieun Han</b>, Jun-Min Lee, Kitaek Kim, Alice Oh, Edward Choi'
 collection: 'publications'
 permalink: '/publications/2025-transenv'
 date: '2025-12-02'
