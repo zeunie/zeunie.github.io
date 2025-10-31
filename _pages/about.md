@@ -8,8 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Hi, I am a Ph.D candidate in <a href="https://uilab.kr/">User & Information Lab (U&I Lab)</a>, KAIST. My research interests lie at the intersection of Natural Language Processing and Human-AI Interaction, with a particular focus on English education. I am especially interested in how Large Language Models can be leveraged to enable personalized learning—tailoring educational content to meet the unique needs of individual learners.
-
+Hi, I am a Ph.D candidate in <a href="https://uilab.kr/">User & Information Lab (U&I Lab)</a>, KAIST. My research interests lie at the intersection of Natural Language Processing and Human-AI Interaction, with a particular focus on English education. I am recently interested in how LLMs can support student learning interactions, especially through (1) LLM-based student simulation and (2) personalized learning material generation.
 
 Please feel free to contact me via email <code>{firstname}_{lastname} (at) kaist.ac.kr</code>.
 
